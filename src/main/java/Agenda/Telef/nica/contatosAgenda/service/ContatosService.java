@@ -23,21 +23,21 @@ public class ContatosService {
     }
 
     public ContatosModel cadastrarContatos(ContatosModel contatosModel) {
-        contatosModel.getCodigoDoContato();
+        contatosModel.getIdDoContato();
         contatosModel.getNomeDoContato();
         contatosModel.getDdDoContato();
         contatosModel.getNumeroDoContato();
-
+        contatosModel.getEstadoDoContato();
 
         return contatosRepository.save(contatosModel);
     }
 
     public ContatosModel alterarContatos(ContatosModel contatosModel) {
-        contatosModel.getCodigoDoContato();
+        contatosModel.getIdDoContato();
         contatosModel.getNomeDoContato();
         contatosModel.getDdDoContato();
         contatosModel.getNumeroDoContato();
-
+        contatosModel.getEstadoDoContato();
 
         return contatosRepository.save(contatosModel);
     }

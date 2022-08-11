@@ -17,7 +17,7 @@ public class ContatosModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codigoDoContato;
+    private Long idDoContato;
 
     @Column(length = 100, nullable = false)
     private String nomeDoContato;
@@ -27,5 +27,8 @@ public class ContatosModel {
 
     @Column(length = 100, nullable = false)
     private String numeroDoContato;
+
+    @Column(length = 100, nullable = false)
+    private String estadoDoContato;
 
 }
