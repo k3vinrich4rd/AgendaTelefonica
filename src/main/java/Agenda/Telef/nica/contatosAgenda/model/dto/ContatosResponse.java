@@ -11,7 +11,8 @@ import java.util.UUID;
 @NoArgsConstructor
 
 public class ContatosResponse {
-    private String nomeDoContato;
     private UUID id;
+    private String nomeDoContato;
+
 
 }

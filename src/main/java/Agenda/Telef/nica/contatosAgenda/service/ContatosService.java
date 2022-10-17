@@ -26,12 +26,12 @@ public class ContatosService {
                 contatosRequest.getEstadoDoContato());
         iContatosRepository.save(contatosModel);
 
-        return new ContatosResponse(contatosRequest.getNomeDoContato(), contatosRequest.getId());
+        return new ContatosResponse(contatosRequest.getId(), contatosRequest.getNomeDoContato());
     }
 
     public List<ContatosResponse> exibirTodosContatos() {
         List<ContatosModel> contatosModelList = iContatosRepository.findAll();
-        return contatosModelList.stream().map(obj -> new ContatosResponse(obj.getNomeDoContato(), obj.getId()))
+        return contatosModelList.stream().map(obj -> new ContatosResponse(obj.getId(), obj.getNomeDoContato()))
                 .collect(Collectors.toList());
 
     }
