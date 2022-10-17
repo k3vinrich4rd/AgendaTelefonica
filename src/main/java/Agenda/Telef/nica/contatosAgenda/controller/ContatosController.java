@@ -1,43 +1,50 @@
 package Agenda.Telef.nica.contatosAgenda.controller;
 
 import Agenda.Telef.nica.contatosAgenda.model.ContatosModel;
+import Agenda.Telef.nica.contatosAgenda.model.dto.ContatosRequest;
+import Agenda.Telef.nica.contatosAgenda.model.dto.ContatosResponse;
 import Agenda.Telef.nica.contatosAgenda.service.ContatosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
+@Validated
+@RequestMapping(path = "/contatos")
 public class ContatosController {
 
     @Autowired
     private ContatosService contatosService;
 
-    @GetMapping(path = "/contatos")
-    public List<ContatosModel> mostrarContatos() {
-        return contatosService.exibirTodosContatos();
+    @PostMapping
+    public ResponseEntity<ContatosResponse> cadastrarContatos(@Valid @RequestBody ContatosRequest contatosRequest) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(contatosService.cadastrarContatos(contatosRequest));
     }
 
-    @GetMapping(path = "/contatos/{codigo}")
-    public Optional<ContatosModel> exibirId(@PathVariable Long codigo) {
-        return contatosService.exibirViaID(codigo);
+    @GetMapping
+    public ResponseEntity<List<ContatosResponse>> mostrarContatos() {
+        return ResponseEntity.ok().body(contatosService.exibirTodosContatos());
     }
 
-    @PostMapping(path = "/contatos")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ContatosModel cadastrarContatos(@RequestBody ContatosModel contatosModel) {
-        return contatosService.cadastrarContatos(contatosModel);
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<Optional<ContatosModel>> exibirTodosContatosViaId(@PathVariable UUID id){
+        return ResponseEntity.ok(contatosService.exibirViaID(id));
     }
 
-    @PutMapping(path = "/contatos/{codigo}")
-    public ContatosModel alterarProduto(@RequestBody ContatosModel contatosModel) {
-        return contatosService.alterarContatos(contatosModel);
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<ContatosModel> alterarProduto(@Valid @RequestBody ContatosModel contatosModel) {
+        return ResponseEntity.ok(contatosService.alterarContatos(contatosModel));
     }
 
-    @DeleteMapping(path = "/contatos/{codigo}")
-    public void deletarContato(@PathVariable Long codigo) {
-        contatosService.deletarContatos(codigo);
+    @DeleteMapping(path = "/{id}")
+    public void deletarContato(@PathVariable UUID id) {
+        contatosService.deletarContatos(id);
     }
 }
