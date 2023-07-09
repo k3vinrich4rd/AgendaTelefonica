@@ -19,7 +19,6 @@ import java.util.UUID;
 @Validated
 @RequestMapping(path = "/contatos")
 public class ContatosController {
-
     @Autowired
     private ContatosService contatosService;
 
