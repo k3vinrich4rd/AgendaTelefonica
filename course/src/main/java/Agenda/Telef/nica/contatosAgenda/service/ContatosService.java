@@ -1,9 +1,11 @@
 package Agenda.Telef.nica.contatosAgenda.service;
 
-import Agenda.Telef.nica.contatosAgenda.model.ContatosModel;
-import Agenda.Telef.nica.contatosAgenda.model.dto.ContatosRequest;
-import Agenda.Telef.nica.contatosAgenda.model.dto.ContatosResponse;
-import Agenda.Telef.nica.contatosAgenda.repository.IContatosRepository;
+
+
+import academy.devdojo.core.model.ContatosModel;
+import academy.devdojo.core.model.dto.ContatosRequest;
+import academy.devdojo.core.model.dto.ContatosResponse;
+import academy.devdojo.core.repository.IContatosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

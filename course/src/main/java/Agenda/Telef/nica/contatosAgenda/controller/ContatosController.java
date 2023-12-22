@@ -1,9 +1,11 @@
 package Agenda.Telef.nica.contatosAgenda.controller;
 
-import Agenda.Telef.nica.contatosAgenda.model.ContatosModel;
-import Agenda.Telef.nica.contatosAgenda.model.dto.ContatosRequest;
-import Agenda.Telef.nica.contatosAgenda.model.dto.ContatosResponse;
+
+
 import Agenda.Telef.nica.contatosAgenda.service.ContatosService;
+import academy.devdojo.core.model.ContatosModel;
+import academy.devdojo.core.model.dto.ContatosRequest;
+import academy.devdojo.core.model.dto.ContatosResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+
 import java.util.Optional;
 import java.util.UUID;
 

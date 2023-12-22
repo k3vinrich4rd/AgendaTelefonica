@@ -1,4 +1,4 @@
-package Agenda.Telef.nica.contatosAgenda.model;
+package academy.devdojo.core.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
